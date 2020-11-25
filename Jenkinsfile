@@ -16,8 +16,12 @@
 
 */
 
+@Library('etn-ipm2-jenkins') _
+
 pipeline {
-                    agent { label "linux || macosx || bsd || solaris || posix || windows" }
+    agent {
+        label infra.getAgentLabels()
+    }
     parameters {
         // Use DEFAULT_DEPLOY_BRANCH_PATTERN and DEFAULT_DEPLOY_JOB_NAME if
         // defined in this jenkins setup -- in Jenkins Management Web-GUI
